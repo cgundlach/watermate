@@ -9,6 +9,9 @@ class GardensController < ApplicationController
 
   def new
     @garden = Garden.new
+    @plants = Plant.all
+    # WHY???
+    #@plant.display_name = params[:display_name]
   end
 
   def create
@@ -19,6 +22,7 @@ class GardensController < ApplicationController
     else
       render 'new'
     end
+
   end
 
   def edit
