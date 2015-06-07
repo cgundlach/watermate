@@ -1,0 +1,93 @@
+<!-- Validation failure messages -->
+
+<% if @user_plant.errors.any? %>
+  <% @user_plant.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit User Plant #<%= @user_plant.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_user_plant/<%= @user_plant.id %>" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @user_plant.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for days -->
+          <div class="form-group">
+            <label for="days" class="col-sm-2 control-label">
+              Days
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="days" name="days" placeholder="Days" class="form-control" value="<%= @user_plant.days %>">
+            </div>
+          </div>
+
+          <!-- Label and input for thirst -->
+          <div class="form-group">
+            <label for="thirst" class="col-sm-2 control-label">
+              Thirst
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="thirst" name="thirst" placeholder="Thirst" class="form-control" value="<%= @user_plant.thirst %>">
+            </div>
+          </div>
+
+          <!-- Label and input for plant -->
+          <div class="form-group">
+            <label for="plant" class="col-sm-2 control-label">
+              Plant
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="plant" name="plant" placeholder="Plant" class="form-control" value="<%= @user_plant.plant %>">
+            </div>
+          </div>
+
+          <!-- Label and input for water -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="water">
+                  <input type="checkbox" id="water" name="water" value="1" <%= "checked" if @user_plant.water %>>
+                  Water
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-warning">
+                Update User Plant
+              </button>
+              or
+              <a href="/user_plants/<%= @user_plant.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->

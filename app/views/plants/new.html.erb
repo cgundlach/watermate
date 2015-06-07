@@ -1,0 +1,80 @@
+<!-- Validation failure messages -->
+
+<% if @plant.errors.any? %>
+  <% @plant.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Plant</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_plant" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for category -->
+          <div class="form-group">
+            <label for="category" class="col-sm-2 control-label">
+              Category
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @plant.category %>">
+            </div>
+          </div>
+
+          <!-- Label and input for pic -->
+          <div class="form-group">
+            <label for="pic" class="col-sm-2 control-label">
+              Pic
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="pic" name="pic" placeholder="Pic" class="form-control" value="<%= @plant.pic %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dbw -->
+          <div class="form-group">
+            <label for="dbw" class="col-sm-2 control-label">
+              Dbw
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dbw" name="dbw" placeholder="Dbw" class="form-control" value="<%= @plant.dbw %>">
+            </div>
+          </div>
+
+          <!-- Label and input for display_name -->
+          <div class="form-group">
+            <label for="display_name" class="col-sm-2 control-label">
+              Display name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="display_name" name="display_name" placeholder="Display name" class="form-control" value="<%= @plant.display_name %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Plant
+              </button>
+              or
+              <a href="/plants">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

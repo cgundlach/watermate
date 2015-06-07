@@ -1,0 +1,104 @@
+<div class="page-header">
+  <h1>
+    All Plants
+    <a href="/plants/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+  </h1>
+</div>
+
+<!-- Responsive, Isotope-based layout example -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" id="quicksearch" placeholder="Search Plants (start typing)" class="form-control">
+  </div>
+</div>
+
+<hr>
+
+<div class="row isotope-container">
+<% @plants.each do |plant| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title"><%= plant.display_name %></h1>
+      </div>
+      <div class="panel-body">
+        <dl>
+
+          <dd><div> <img src="data:image/png;base64,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"/></a></div>
+</dd>
+        <dt>Container Size:</dt>
+          <dd><%= plant.category %></dd>
+
+          <dt>Days Between Watering:</dt>
+          <dd><%= plant.dbw %></dd>
+
+
+
+        </dl>
+        <div class="btn-group btn-group-justified">
+          <a href="/plants/<%= plant.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+
+          <a href="/plants/<%= plant.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="/delete_plant/<%= plant.id %>" class="btn btn-danger" rel="nofollow">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->
+<!-- JavaScript for Isotope layout and quicksearch -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+<script>
+  $(function() {
+    // quick search regex
+    var qsRegex;
+
+    // init Isotope
+    var $container = $('.isotope-container');
+
+    $container.imagesLoaded(function() {
+      $container.isotope({
+        itemSelector: '.isotope-item',
+        layoutMode: 'masonry',
+        filter: function() {
+          return qsRegex ? $(this).text().match( qsRegex ) : true;
+        }
+      })
+    });
+
+    // use value of search field to filter
+    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+      $container.isotope();
+    }, 200 ) );
+
+  });
+
+  // debounce so filtering doesn't happen every millisecond
+  function debounce( fn, threshold ) {
+    var timeout;
+    return function debounced() {
+      if ( timeout ) {
+        clearTimeout( timeout );
+      }
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+      timeout = setTimeout( delayed, threshold || 100 );
+    }
+  }
+</script>
+
+<!-- End responsive, Isotope-based layout example -->
