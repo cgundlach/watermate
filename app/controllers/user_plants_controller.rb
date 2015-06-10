@@ -9,6 +9,7 @@ class UserPlantsController < ApplicationController
 
   def new
     @user_plant = UserPlant.new
+
   end
 
   def create
@@ -16,17 +17,21 @@ class UserPlantsController < ApplicationController
     @user_plant.user_id = params[:user_id]
     @user_plant.days = params[:days]
     @user_plant.thirst = params[:thirst]
-    @user_plant.plant = params[:plant]
+    @user_plant.plant_id = params[:plant_id]
     @user_plant.water = params[:water]
 
     if @user_plant.save
-      redirect_to "/user_plants", :notice => "User plant created successfully."
+      redirect_to "/user_plants", :notice => "Plant addeded successfully."
     else
       render 'new'
     end
   end
 
   def edit
+    @user_plant = UserPlant.find(params[:id])
+  end
+
+  def watercheck
     @user_plant = UserPlant.find(params[:id])
   end
 

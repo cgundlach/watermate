@@ -10,12 +10,13 @@ class GardensController < ApplicationController
   def new
     @garden = Garden.new
     @plants = Plant.all
-    # WHY???
-    #@plant.display_name = params[:display_name]
+    @plant = Plant.new
+    @plant.display_name = params[:display_name]
   end
 
   def create
     @garden = Garden.new
+
 
     if @garden.save
       redirect_to "/gardens", :notice => "Garden created successfully."

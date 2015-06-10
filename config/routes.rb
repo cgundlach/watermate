@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Save resource:
+  # CREATE
+  get "/saves/new/:id", :controller => "saves", :action => "new"
+  post "/user_plants/:id", :controller => "user_plants", :action => "show"
+
+  # READ
+  get "/saves", :controller => "saves", :action => "index"
+  get "/saves/:id", :controller => "saves", :action => "show"
+
+  # UPDATE
+  get "/saves/:id/edit", :controller => "saves", :action => "edit"
+  post "/update_save/:id", :controller => "saves", :action => "update"
+
+  # DELETE
+  get "/delete_save/:id", :controller => "saves", :action => "destroy"
+  #------------------------------
+
   # Routes for the Garden resource:
   # CREATE
   get "/gardens/new", :controller => "gardens", :action => "new"
@@ -31,6 +48,10 @@ root "welcome#index"
 
   # UPDATE
   get "/user_plants/:id/edit", :controller => "user_plants", :action => "edit"
+  post "/update_user_plant/:id", :controller => "user_plants", :action => "update"
+
+ # Watered?
+  get "/user_plants/:id/watercheck", :controller => "user_plants", :action => "watercheck"
   post "/update_user_plant/:id", :controller => "user_plants", :action => "update"
 
   # DELETE

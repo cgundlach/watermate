@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_many :user_plants , :class_name => "UserPlant", :foreign_key => "user_plants_id"
-  has_many :gardens
+  has_many :user_plants
+  has_many :plants, :through => :user_plants
+  has_many :saves, :through => :user_plants
 
 
   # Include default devise modules. Others available are:
