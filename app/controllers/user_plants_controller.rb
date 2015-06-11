@@ -33,7 +33,9 @@ class UserPlantsController < ApplicationController
 
   def watercheck
     @user_plant = UserPlant.find(params[:id])
+    @user_plant.updated_at = params[:updated_at]
   end
+
 
   def update
     @user_plant = UserPlant.find(params[:id])

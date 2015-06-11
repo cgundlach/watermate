@@ -1,37 +1,37 @@
 Rails.application.routes.draw do
   # Routes for the Save resource:
   # CREATE
-  get "/saves/new/:id", :controller => "saves", :action => "new"
-  post "/user_plants/:id", :controller => "user_plants", :action => "show"
+ # get "/saves/new/:id", :controller => "saves", :action => "new"
+  #post "/user_plants/:id", :controller => "user_plants", :action => "show"
 
   # READ
-  get "/saves", :controller => "saves", :action => "index"
-  get "/saves/:id", :controller => "saves", :action => "show"
+  #get "/saves", :controller => "saves", :action => "index"
+  #get "/saves/:id", :controller => "saves", :action => "show"
 
   # UPDATE
-  get "/saves/:id/edit", :controller => "saves", :action => "edit"
-  post "/update_save/:id", :controller => "saves", :action => "update"
+  #get "/saves/:id/edit", :controller => "saves", :action => "edit"
+  #post "/update_save/:id", :controller => "saves", :action => "update"
 
   # DELETE
-  get "/delete_save/:id", :controller => "saves", :action => "destroy"
+  #get "/delete_save/:id", :controller => "saves", :action => "destroy"
   #------------------------------
 
   # Routes for the Garden resource:
   # CREATE
-  get "/gardens/new", :controller => "gardens", :action => "new"
-  post "/create_garden", :controller => "gardens", :action => "create"
+  #get "/gardens/new", :controller => "gardens", :action => "new"
+  #post "/create_garden", :controller => "gardens", :action => "create"
 
 
   # READ
-  get "/gardens", :controller => "gardens", :action => "index"
-  get "/gardens/:id", :controller => "gardens", :action => "show"
+  #get "/gardens", :controller => "gardens", :action => "index"
+  #get "/gardens/:id", :controller => "gardens", :action => "show"
 
   # UPDATE
-  get "/gardens/:id/edit", :controller => "gardens", :action => "edit"
-  post "/update_garden/:id", :controller => "gardens", :action => "update"
+  #get "/gardens/:id/edit", :controller => "gardens", :action => "edit"
+  #post "/update_garden/:id", :controller => "gardens", :action => "update"
 
   # DELETE
-  get "/delete_garden/:id", :controller => "gardens", :action => "destroy"
+  #get "/delete_garden/:id", :controller => "gardens", :action => "destroy"
   #------------------------------
 
  devise_for :users
@@ -52,7 +52,7 @@ root "welcome#index"
 
  # Watered?
   get "/user_plants/:id/watercheck", :controller => "user_plants", :action => "watercheck"
-  post "/update_user_plant/:id", :controller => "user_plants", :action => "update"
+  post "/watercheck_user_plant/:id", :controller => "user_plants", :action => "index"
 
   # DELETE
   get "/delete_user_plant/:id", :controller => "user_plants", :action => "destroy"
